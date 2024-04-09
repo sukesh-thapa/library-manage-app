@@ -58,16 +58,8 @@ def update_student(id: str = Path(..., description="The ID of the student to upd
         return
     else:
         raise HTTPException(status_code=404, detail="Student not found")
-    
-# @app.delete("/students/{id}", summary="Delete student")
-# def delete_student(id: str = Path(..., description="The ID of the student to delete")):
-#     db = get_database()
-#     deleted_student = db.students.delete_one({"_id": id})
-#     if deleted_student.deleted_count == 1:
-#         return
-#     else:
-#         raise HTTPException(status_code=404, detail="Student not found")
 
+# Endpoint to delete a student by id 
 @app.delete("/students/{id}", summary="Delete student")
 def delete_student(id: str = Path(..., description="The ID of the student to delete")):
     try:
